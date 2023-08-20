@@ -1,12 +1,16 @@
-import java.util.Date;
+package models;
 
-class Tarefa {
+import java.time.LocalDate;
+
+public class Tarefa {
     private String nome;
     private String descricao;
-    private Date dataTermino;
+    private LocalDate dataTermino;
     private int nivelPrioridade;
     private String categoria;
-    private StatusTodo status;
+    private StatusEnum status;
+
+    private Alarme alarme;
 
     public Tarefa() {
     }
@@ -27,11 +31,11 @@ class Tarefa {
         this.descricao = descricao;
     }
 
-    public Date getDataTermino() {
+    public LocalDate getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(Date dataTermino) {
+    public void setDataTermino(LocalDate dataTermino) {
         this.dataTermino = dataTermino;
     }
 
@@ -51,17 +55,34 @@ class Tarefa {
         this.categoria = categoria;
     }
 
-    public StatusTodo getStatus() {
+    public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(StatusTodo status) {
+    public void setStatus(StatusEnum status) {
         this.status = status;
+    }
+
+
+    public Alarme getAlarme() {
+        return alarme;
+    }
+
+    public void setAlarme(Alarme alarme) {
+        this.alarme = alarme;
     }
 
     @Override
     public String toString() {
-        return "Tarefa{" + "nome='" + nome + '\'' + ", descricao='" + descricao + '\'' + ", dataTermino='" + dataTermino + '\'' + ", nivelPrioridade=" + nivelPrioridade + ", categoria='" + categoria + '\'' + ", status='" + status + '\'' + '}';
+        return "Tarefa{" +
+                "nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", dataTermino=" + dataTermino +
+                ", nivelPrioridade=" + nivelPrioridade +
+                ", categoria='" + categoria + '\'' +
+                ", status=" + status +
+                ", alarme=" + alarme +
+                '}';
     }
 }
 
