@@ -42,28 +42,28 @@ public class K1T3 {
 
     public static Tarefa criarTarefa() {
 
-        Tarefa k1t3 = new Tarefa();
+        Tarefa tarefa = new Tarefa();
         Scanner entrada = new Scanner(System.in);
 
         System.out.println("Nome da tarefa");
         var nome = entrada.nextLine();
-        k1t3.setNome(nome);
+        tarefa.setNome(nome);
 
         System.out.println("descrição da tarefa");
         var descricao = entrada.nextLine();
-        k1t3.setDescricao(descricao);
+        tarefa.setDescricao(descricao);
 
         System.out.println("Informe o nivel de prioridade de 1 á 5");
         var prioridade = entrada.nextLine();
-        k1t3.setNivelPrioridade(Integer.parseInt(prioridade));
+        tarefa.setNivelPrioridade(Integer.parseInt(prioridade));
 
-        System.out.println("Informe a categoria - importante ou Urgente?");
+        System.out.println("Informe a categoria:");
         var categoria = entrada.nextLine();
-        k1t3.setCategoria(categoria);
+        tarefa.setCategoria(categoria);
 
         System.out.println("Informe a data de termino(dd/MM/YYYY)");
         var dataTermino = entrada.nextLine();
-        k1t3.setDataTermino(dataTermino);
+        tarefa.setDataTermino(dataTermino);
 
         System.out.println("1 - Todo");
         System.out.println("2 - Doing");
@@ -72,15 +72,15 @@ public class K1T3 {
         var status = entrada.nextLine();
 
         if (status.equals("1")) {
-            k1t3.setStatus(StatusTodo.TODO);
+            tarefa.setStatus(StatusTodo.TODO);
         } else if (status.equals("2")) {
-            k1t3.setStatus(StatusTodo.DOING);
+            tarefa.setStatus(StatusTodo.DOING);
         } else if (status.equals("3")) {
-            k1t3.setStatus(StatusTodo.DONE);
+            tarefa.setStatus(StatusTodo.DONE);
         }
-        System.out.println(k1t3);
+        System.out.println(tarefa);
 
-        return k1t3;
+        return tarefa;
 
 
     }

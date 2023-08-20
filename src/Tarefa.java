@@ -1,19 +1,12 @@
+import java.util.Date;
+
 class Tarefa {
     private String nome;
     private String descricao;
-    private String dataTermino;
+    private Date dataTermino;
     private int nivelPrioridade;
     private String categoria;
     private StatusTodo status;
-
-    public Tarefa(String nome, String descricao, String dataTermino, int nivelPrioridade, String categoria, StatusTodo status) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.dataTermino = dataTermino;
-        this.nivelPrioridade = nivelPrioridade;
-        this.categoria = categoria;
-        this.status = status;
-    }
 
     public Tarefa() {
     }
@@ -34,11 +27,11 @@ class Tarefa {
         this.descricao = descricao;
     }
 
-    public String getDataTermino() {
+    public Date getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(String dataTermino) {
+    public void setDataTermino(Date dataTermino) {
         this.dataTermino = dataTermino;
     }
 
