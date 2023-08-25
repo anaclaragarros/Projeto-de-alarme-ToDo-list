@@ -1,4 +1,4 @@
-# K1T3
+# ToDo List - Alarme 
 ZG-Hero Project trilha (K1-T3): Java
 Para executar o codigo deve executado o arquivo main.
 Tecnologia utilizada - somente Java.
