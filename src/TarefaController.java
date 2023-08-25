@@ -13,9 +13,30 @@ public class TarefaController {
     ArrayList<Tarefa> lista = new ArrayList<Tarefa>();
 
     public void init() {
+
+        Tarefa tarefaDaAna = new Tarefa();
+        tarefaDaAna.setNome("Tarefa agora");
+
+        Alarme alarmeDaAna = new Alarme();
+        alarmeDaAna.setDescricao("Agora");
+        alarmeDaAna.setAtivo(true);
+        alarmeDaAna.setDataHora(LocalDate.now());
+        tarefaDaAna.setAlarme(alarmeDaAna);
+        lista.add(tarefaDaAna);
+
+        Tarefa tarefaClara = new Tarefa();
+        tarefaClara.setNome("Tarefa ontem");
+
+        Alarme alarmeClara = new Alarme();
+        alarmeClara.setDescricao("Ontem");
+        alarmeClara.setAtivo(true);
+        alarmeClara.setDataHora(LocalDate.parse("2023-08-23"));
+        tarefaClara.setAlarme(alarmeClara);
+        lista.add(tarefaClara);
+
+        checkAlarme();
         escolherOpcoes();
     }
-
 
     public void escolherOpcoes() {
         System.out.println("Selecione uma ação.");
@@ -196,5 +217,19 @@ public class TarefaController {
         }
 
         System.out.println(listaFiltrada);
+    }
+
+    public void checkAlarme() {
+        for (Tarefa tarefa : lista) {
+            if (tarefa.getAlarme().getDataHora().equals(LocalDate.now())) {
+                System.out.println("Essa tarefa tem um alarme agendado para hoje.");
+                System.out.println(tarefa.getNome());
+                System.out.println(tarefa.getAlarme().getDescricao());
+                System.out.println(tarefa.getAlarme().getDataHora());
+            }
+
+
+        }
+
     }
 }
