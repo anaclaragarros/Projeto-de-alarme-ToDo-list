@@ -3,15 +3,8 @@ import models.FilterEnum;
 import models.StatusEnum;
 import models.Tarefa;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
-
 public class TarefaController {
-    ArrayList<Tarefa> lista = new ArrayList<Tarefa>();
-
+     ArrayList<Tarefa> lista = new ArrayList<Tarefa>();
     public void init() {
 
         Tarefa tarefaDaAna = new Tarefa();
@@ -60,9 +53,7 @@ public class TarefaController {
             return;
         }
 
-
         escolherOpcoes();
-
     }
 
     public Tarefa criarTarefa() {
@@ -108,7 +99,6 @@ public class TarefaController {
 
         return tarefa;
     }
-
     public void deletarTarefa() {
         lerTarefas();
         System.out.println("Informe o id da tarefa que deseja deletar:");
@@ -116,7 +106,6 @@ public class TarefaController {
         String id = entrada.nextLine();
         lista.remove(Integer.parseInt(id));
     }
-
     public void lerTarefas() {
 
         FilterEnum filtro = getFilter();
@@ -132,8 +121,6 @@ public class TarefaController {
         }
 
     }
-
-
     public FilterEnum getFilter() {
         System.out.println("Deseja filtrar por:");
         System.out.println("1 - Categoria");
@@ -157,7 +144,6 @@ public class TarefaController {
         }
         return null;
     }
-
     public void filterByCategoria() {
         Set<String> categorias = new HashSet<String>();
         for (Tarefa tarefa : lista) {
@@ -177,7 +163,6 @@ public class TarefaController {
         System.out.println(listaFiltrada);
 
     }
-
     public void filterByPrioridade() {
         System.out.println("Seleciona a prioridade(1~5): ");
         Scanner entrada = new Scanner(System.in);
@@ -189,7 +174,6 @@ public class TarefaController {
 
         System.out.println(listaFiltrada);
     }
-
     public void filterByStatus() {
         System.out.println("Selecione o status: ");
         System.out.println("1 - TODO");
@@ -218,7 +202,6 @@ public class TarefaController {
 
         System.out.println(listaFiltrada);
     }
-
     public void checkAlarme() {
         for (Tarefa tarefa : lista) {
             if (tarefa.getAlarme().getDataHora().equals(LocalDate.now())) {
@@ -227,9 +210,6 @@ public class TarefaController {
                 System.out.println(tarefa.getAlarme().getDescricao());
                 System.out.println(tarefa.getAlarme().getDataHora());
             }
-
-
         }
-
     }
 }
