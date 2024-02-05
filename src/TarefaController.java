@@ -202,14 +202,12 @@ public class TarefaController {
 
         System.out.println(listaFiltrada);
     }
-    public void checkAlarme() {
-        for (Tarefa tarefa : lista) {
-            if (tarefa.getAlarme().getDataHora().equals(LocalDate.now())) {
-                System.out.println("Essa tarefa tem um alarme agendado para hoje.");
-                System.out.println(tarefa.getNome());
-                System.out.println(tarefa.getAlarme().getDescricao());
-                System.out.println(tarefa.getAlarme().getDataHora());
+    public Tarefa getTarefaPorNome(String nome) {
+        for (Tarefa tarefa : listaTarefas) {
+            if (tarefa.getNome().equals(nome)) {
+                return tarefa;
             }
         }
+        return null;
     }
 }
