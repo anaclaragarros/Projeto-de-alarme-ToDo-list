@@ -3,6 +3,12 @@ import models.FilterEnum;
 import models.StatusEnum;
 import models.Tarefa;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
 public class TarefaController {
      ArrayList<Tarefa> lista = new ArrayList<Tarefa>();
     public void init() {
@@ -27,7 +33,7 @@ public class TarefaController {
         tarefaClara.setAlarme(alarmeClara);
         lista.add(tarefaClara);
 
-        checkAlarme();
+//        checkAlarme();
         escolherOpcoes();
     }
 
@@ -43,14 +49,18 @@ public class TarefaController {
         String opcaoSelecionada = entrada.nextLine();
         System.out.println(opcaoSelecionada);
 
-        if (opcaoSelecionada.equals("1")) {
-            criarTarefa();
-        } else if (opcaoSelecionada.equals("2")) {
-            lerTarefas();
-        } else if (opcaoSelecionada.equals("3")) {
-            deletarTarefa();
-        } else if (opcaoSelecionada.equals("4")) {
-            return;
+        switch (opcaoSelecionada) {
+            case "1":
+                criarTarefa();
+                break;
+            case "2":
+                lerTarefas();
+                break;
+            case "3":
+                deletarTarefa();
+                break;
+            case "4":
+                return;
         }
 
         escolherOpcoes();
@@ -87,13 +97,12 @@ public class TarefaController {
 
         var status = entrada.nextLine();
 
-        if (status.equals("1")) {
-            tarefa.setStatus(StatusEnum.TODO);
-        } else if (status.equals("2")) {
-            tarefa.setStatus(StatusEnum.DOING);
-        } else if (status.equals("3")) {
-            tarefa.setStatus(StatusEnum.DONE);
+        switch (status) {
+            case "1" -> tarefa.setStatus(StatusEnum.TODO);
+            case "2" -> tarefa.setStatus(StatusEnum.DOING);
+            case "3" -> tarefa.setStatus(StatusEnum.DONE);
         }
+
         System.out.println(tarefa);
         lista.add(tarefa);
 
@@ -182,17 +191,12 @@ public class TarefaController {
         Scanner entrada = new Scanner(System.in);
         String status = entrada.nextLine();
 
-        StatusEnum statusFilter;
-
-        if (status.equals("1")) {
-            statusFilter = StatusEnum.TODO;
-        } else if (status.equals("2")) {
-            statusFilter = StatusEnum.DOING;
-        } else if (status.equals("3")) {
-            statusFilter = StatusEnum.DONE;
-        } else {
-            statusFilter = null;
-        }
+        StatusEnum statusFilter = switch (status) {
+            case "1" -> StatusEnum.TODO;
+            case "2" -> StatusEnum.DOING;
+            case "3" -> StatusEnum.DONE;
+            default -> null;
+        };
 
         ArrayList<Tarefa> listaFiltrada = new ArrayList<Tarefa>();
 
@@ -202,12 +206,12 @@ public class TarefaController {
 
         System.out.println(listaFiltrada);
     }
-    public Tarefa getTarefaPorNome(String nome) {
-        for (Tarefa tarefa : listaTarefas) {
-            if (tarefa.getNome().equals(nome)) {
-                return tarefa;
-            }
-        }
-        return null;
-    }
+//    public Tarefa getTarefaPorNome(String nome) {
+//        for (Tarefa tarefa : listaTarefas) {
+//            if (tarefa.getNome().equals(nome)) {
+//                return tarefa;
+//            }
+//        }
+//        return null;
+//    }
 }

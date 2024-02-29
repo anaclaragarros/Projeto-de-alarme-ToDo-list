@@ -1,11 +1,14 @@
-mport java.time.LocalDate;
+import models.Alarme;
+import models.StatusEnum;
+
+import java.time.LocalDate;
 
 public class Tarefa {
     private String nome;
     private String descricao;
     private int nivelPrioridade;
     private String categoria;
-    private DateTime dataTermino;
+    private LocalDate dataTermino;
     private StatusEnum status;
     private Alarme alarme;
 
