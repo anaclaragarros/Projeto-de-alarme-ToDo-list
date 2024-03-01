@@ -1,4 +1,4 @@
-# ToDo List - AlarmeController 
+# Todo List - AlarmeController 
 Projeto de alarme ToDo List: Java
 O codigo deve executado o arquivo main.
 Tecnologia utilizada - somente Java.
