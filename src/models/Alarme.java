@@ -1,15 +1,14 @@
 package models;
-
 import java.time.LocalDate;
 
 
 public class Alarme {
 
     private LocalDate dataHora;
+
     private String descricao;
 
     private Boolean ativo;
-
 
     public LocalDate getDataHora() {
         return dataHora;

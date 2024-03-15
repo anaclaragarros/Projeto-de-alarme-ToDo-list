@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" type="text/css" href="css/todo.css">
+</head>
+<body>
+<form id="taskForm">
+    <label for="taskName">Nome da Tarefa:</label>
+    <input type="text" id="taskName" required>
+    <br>
+    <label for="taskDescription">Descrição:</label>
+    <input type="text" id="taskDescription" required>
+    <br>
+    <label for="taskPriority">Prioridade:</label>
+    <input type="text" id="taskPriority" required>
+    <br>
+    <label for="taskCategory">Categoria:</label>
+    <input type="text" id="taskCategory" required>
+    <br>
+    <label for="taskStatus">Status:</label>
+    <input type="text" id="taskStatus" required>
+    <br>
+    <button type="button" onclick="saveTask()">Salvar Tarefa</button>
+</form>
+
+<hr>
+
+<label for="filterStatus">Filtrar por Status:</label>
+<select id="filterStatus" onchange="filterTasks()">
+    <option value="ALL">Todos</option>
+</select>
+
+<label for="filterPriority">Filtrar por Prioridade:</label>
+<select id="filterPriority" onchange="filterTasks()">
+    <option value="ALL">Todos</option>
+</select>
+
+<label for="filterCategory">Filtrar por Categoria:</label>
+<input type="text" id="filterCategory" oninput="filterTasks()">
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Prioridade</th>
+        <th>Categoria</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody id="taskList"></tbody>
+</table>
+</body>
+<script src="js/todoList.js"></script>
+</html>

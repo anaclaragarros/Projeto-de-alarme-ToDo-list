@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class TarefaService {
+public class TareService {
     private ArrayList<Tarefa> listaTarefas = new ArrayList<Tarefa>();
 
     public void criarTarefa(Tarefa tarefa) {
